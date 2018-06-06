@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 Recipe Finder
+
+  div
+    h2 Select any allergies, sensitivities, or dietary restrictions you have.
+    -
+      var commonAllergies = ['Dairy', 'Egg', 'Wheat', 'Soy', 'Peanut', 'Treenut', 'Shellfish', 'Fish', 'Sesame']
+    each item in commonAllergies
+      button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
+        p= item
+    div
+      -
+        var dietaryRestrictions = ['Kosher', 'Halal', 'Pescetarian', 'Vegetarian', 'Vegan']
+      each item in dietaryRestrictions
+        button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
+          p= item
+
+  div
+    h2 Select whatever basic ingredients you have on hand.
