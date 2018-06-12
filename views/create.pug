@@ -1,0 +1,34 @@
+extends layoutBS
+
+block content
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  h1#indexheader New Study Guide
+
+  .container.emptyspace
+    .centered-form
+      .form-header
+        a.btn.btn-primary.btn-md.inline(href="#" role="button") Upload
+        p or create one from scratch.
+      .form.emptyspace
+        #texteditor
+          #header
+            button.btn
+              i.fa.fa-bold
+            button.btn
+              i.fa.fa-italic
+            button.btn
+              i.fa.fa-underline
+            button.btn
+              i.fa.fa-superscript
+            button.btn
+              i.fa.fa-subscript
+            button.btn
+              i.fa.fa-list-ul
+            button.btn
+              i.fa.fa-list-ol
+            button.btn
+              i.fa.fa-link
+            button.btn
+              i.fa.fa-undo
+          #textarea
+            iframe#wysiwyg(name='wysiwyg' frameborder='0')

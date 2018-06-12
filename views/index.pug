@@ -1,21 +1,19 @@
-extends layout
+extends layoutBS
 
 block content
-  h1 Creative Title
-
-  div
-    h2 Select any allergies, sensitivities, or dietary restrictions you have.
-    -
-      var commonAllergies = ['Dairy', 'Egg', 'Wheat', 'Soy', 'Peanut', 'Treenut', 'Shellfish', 'Fish', 'Sesame']
-    each item in commonAllergies
-      button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
-        p= item
-    div
-      -
-        var dietaryRestrictions = ['Kosher', 'Halal', 'Pescetarian', 'Vegetarian', 'Vegan']
-      each item in dietaryRestrictions
-        button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
-          p= item
-
-  div
-    h2 Select whatever basic ingredients you have on hand.
+  header
+    .login
+      button.btn.btn-white(login) Log in
+      button.btn.btn-white(login) Sign up
+    br
+    h1#indexheader Group study for the modern age.
+  body
+    .container
+      .form
+        .centered-textfields.emptyspace
+          input(form="text" role="schoolname" placeholder="Your school")
+          input(form="text" role="subjectname" placeholder="Subject")
+        br
+        .centered-buttons
+          a.btn.btn-primary.btn-lg(href="#" role="button") Find
+          a.btn.btn-primary.btn-lg(href="#" role="button") Create

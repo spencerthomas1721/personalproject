@@ -1,8 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background: linear-gradient(to bottom right,#99FFFF,#00B7FF);
+  color: white;
+  width: 100%;
+  height: 150px;
+  diplay: inline-block;
+  text-align: center;
+  padding: 10px;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  display: inline;
+}
+
+form {
+  margin-top: 30px;
+}
+
+button {
+  margin: 0 5px;
+  display: inline-block;
+}
+
+input {
+  margin: 10px;
+}
+
+table {
+  background-color: #f7f7f7;
+  width: 800px;
+  margin: 50px auto;
+  font-size: 20px;
+}
+
+thead {
+  background-color: white;
+  border-bottom: thick solid #b7b7b7;
+}
+
+td {
+  padding: 3px;
+  font-size: 18px;
+  color: #464c51;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+#navbar {
+  text-align: center;
+  width: 530px;
+  margin: 0 auto;
+  color: #99FFFF;
+}
+
+#coursenumber {
+  width: 100px;
+}
+
+div#texteditor {
+  width: 900px;
+  height: 300px;
+  margin-left: 20%;
+}
+
+div#header {
+  border-bottom: none;
+  width: 60%;
+  padding: 10px;
+  background-color: #e0e0e0;
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+#indexheader {
+  margin-top: 30px;
+}
+
+div#textarea {
+  border: 2px solid #e0e0e0;
+  height: 100%;
+  width: 60%;
+}
+
+iframe#wysiwyg {
+    height: 100%;
+    width: 60%;
+}
+
+.btn {
+    background-color: DodgerBlue; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+}
+
+.btn-primary {
+  margin: 10px;
+  display: inline;
+}
+
+.btn-white {
+  background-color: white;
+  color: #00B7FF;
+}
+
+.container {
+}
+
+.inline {
+  display: inline;
+}
+
+.row {
+  margin: inherit;
+}
+
+.form {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.form-header {
+  display: inline-block;
+  text-align: center;
+  width: 990px;
+  margin: 0 auto;
+}
+
+.centered-form {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.centered-text {
+  display: inline;
+  text-align: center;
+}
+
+.centered-textfields {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.centered-buttons {
+  width: 208px;
+  margin: auto;
+}
+
+.emptyspace{
+  margin-top: 50px;
+}
+
+[login] {
+  float: right;
 }
