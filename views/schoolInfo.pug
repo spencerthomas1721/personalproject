@@ -1,0 +1,24 @@
+extends layoutBS
+
+block content
+  h1 Add School Information
+  form(method="post" action="saveSchoolInfo")
+    .formGroup
+      label school name
+      input(type="text" name="schoolName")
+    .formGroup
+      label subject
+      input(type="text" name="subject")
+    input(type="submit")
+  hr
+  h1 List of All School Information
+  form(method="post" action="deleteSchoolInfo")
+    ol
+      each s in schoolInfo
+        li
+          input(name="deleteName" value=schoolInfo.schoolName type="checkbox")
+          e #{schoolInfo.schoolName}
+          br
+          i #{schoolInfo.subject}
+    input(type="submit" value="Delete checked items")
+    hr

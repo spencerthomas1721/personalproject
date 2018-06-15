@@ -2,7 +2,7 @@ extends layoutBS
 
 block content
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-  h1#indexheader New Study Guide
+  h1 New Study Guide
 
   .container.emptyspace
     .centered-form
@@ -31,4 +31,4 @@ block content
             button.btn
               i.fa.fa-undo
           #textarea
-            iframe#wysiwyg(name='wysiwyg' frameborder='0')
+            textarea#wysiwyg(name='studyguideta' rows='18' cols='67')

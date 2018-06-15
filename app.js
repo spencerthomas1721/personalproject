@@ -3,11 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var schoolInfoController = require('./controllers/schoolInfoController');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const createRouter = require('./routes/create');
-const resultsRouter = require('./routes/results');
+const mongoose = require('mongoose')
+mongoose.connect( 'mongodb://localhost/personalproject' )
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function() {
+  console.log("we are connected!")
+})
 
 var app = express();
 
@@ -21,10 +25,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/create', createRouter);
-app.use('/results', resultsRouter);
+app.get('/schoolInfo', schoolInfoController.getAllSchoolInfo );
+app.post('/saveSchoolInfo', schoolInfoController.saveSchoolInfo );
+app.post('/deleteSchoolInfo', schoolInfoController.deleteSchoolInfo );
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

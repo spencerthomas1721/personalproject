@@ -1,12 +1,9 @@
-class SchoolInfo {
-  constructor(name,subj) {
-    this.schoolname = name
-    this.subject = subj
-  }
+'use strict'
+const mongoose = require( 'mongoose' );
 
-  toString() {
-    return `SchoolInfo(${this.schooname},${this.subject})`
-  }
-}
+var schoolInfoSchema = mongoose.Schema( {
+  schoolName: String,
+  subject: String
+} );
 
-module.exports = SchoolInfo
+module.exports = mongoose.model( 'SchoolInfo', schoolInfoSchema );

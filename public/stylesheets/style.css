@@ -102,9 +102,12 @@ div#textarea {
   width: 60%;
 }
 
-iframe#wysiwyg {
-    height: 100%;
-    width: 60%;
+#wysiwyg {
+  border: none;
+  padding: 2px;
+  resize: none;
+  overflow: auto;
+  font-size: 14px;
 }
 
 .btn {
