@@ -24,8 +24,8 @@ exports.saveSchoolInfo = ( req, res ) => {
   console.log("in saveSchoolInfo!")
   console.dir(req)
   let newSchoolInfo = new SchoolInfo( {
-    name: req.body.name,
-    description: req.body.description
+    schoolName: req.body.schoolName,
+    subject: req.body.subject
   } )
 
   console.log("school info = " + newSchoolInfo)
@@ -41,19 +41,26 @@ exports.saveSchoolInfo = ( req, res ) => {
 
 exports.deleteSchoolInfo = (req, res) => {
   console.log("in deleteSchoolInfo")
-  let skillName = req.body.deleteName
+  let schoolName = req.body.deleteName
+  console.dir(schoolName)
   if (typeof(schoolName)=='string') { //this means they selected one item
-      SchoolInfo.deleteOne({name:skillName})
+      console.log("asdf")
+      SchoolInfo.deleteOne({schoolName:schoolName})
            .exec()
            .then(()=>{res.redirect('/schoolInfo')})
            .catch((error)=>{res.send(error)})
   } else if (typeof(schoolName)=='object'){ //this means they selected multiple items
-      SchoolInfo.deleteMany({name:{$in:schoolName}})
+      console.log("jklsemicolon")
+      SchoolInfo.deleteMany({schoolName:{$in:schoolName}})
            .exec()
-           .then(()=>{res.redirect('/schoolInfo')})
+           .then(()=>{
+             res.redirect('/schoolInfo')
+             console.dir(schoolName)
+           })
            .catch((error)=>{res.send(error)})
-  } else if (typeof(skillName)=='undefined'){
-      console.log("This is if they didn't select a skill")
+
+  } else if (typeof(schoolName)=='undefined'){
+      console.log("This is if they didn't select any option")
       res.redirect('/schoolInfo')
   } else {
     console.log("This shouldn't happen!") //fallback; seems like a good practice

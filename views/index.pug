@@ -3,10 +3,11 @@ extends layoutBS
 block content
   header
     .login
-      button.btn.btn-white(login) Log in
-      button.btn.btn-white(login) Sign up
+      button.btn.btn-white(href="/auth/google")
+        span.fa.fa-google-plus Log in with Google
+      //button.btn.btn-white(login) Sign up
     br
-    h1#indexheader Group study for the modern age.
+    h1#indexheader GroupStudy
   body
     .container
       form(method="post")
@@ -15,5 +16,5 @@ block content
           input(type="text" name="subjectname" placeholder="Subject")
         br
         .centered-buttons
-          a(href="results" name="find" type="submit").btn.btn-primary.btn-lg Find
+          a(href="schoolInfo" name="find" type="submit").btn.btn-primary.btn-lg Find
           a(href="create" name="create" type="submit").btn.btn-primary.btn-lg Create

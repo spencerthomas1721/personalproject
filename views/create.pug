@@ -1,34 +1,41 @@
 extends layoutBS
 
 block content
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-  h1 New Study Guide
+  head
+    script(src='/xing-wysihtml5-fb0cfe4/parser_rules/advanced.js')
+    script(src='/xing-wysihtml5-fb0cfe4/dist/wysihtml5-0.3.0.min.js')
 
-  .container.emptyspace
-    .centered-form
-      .form-header
-        a.btn.btn-primary.btn-md.inline(href="#" role="button") Upload
-        p or create one from scratch.
-      .form.emptyspace
-        #texteditor
-          #header
-            button.btn
-              i.fa.fa-bold
-            button.btn
-              i.fa.fa-italic
-            button.btn
-              i.fa.fa-underline
-            button.btn
-              i.fa.fa-superscript
-            button.btn
-              i.fa.fa-subscript
-            button.btn
-              i.fa.fa-list-ul
-            button.btn
-              i.fa.fa-list-ol
-            button.btn
-              i.fa.fa-link
-            button.btn
-              i.fa.fa-undo
-          #textarea
-            textarea#wysiwyg(name='studyguideta' rows='18' cols='67')
+  body
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    h1 New Study Guide
+
+    .container.emptyspace
+      .centered-form
+        form
+          .form-header
+            a.btn.btn-primary.btn-md.inline(href="#" role="button") Upload
+            p or create one from scratch.
+          textarea#wysihtml5-textarea(placeholder='Enter your text ...' autofocus='')
+        //.form.emptyspace
+          //#texteditor
+            //#header
+              //button.btn
+                //i.fa.fa-bold
+        #wysihtml5-toolbar
+          a(data-wysihtml5-command='bold') bold
+          a(data-wysihtml5-command='italic') italic
+          // Some wysihtml5 commands require extra parameters
+          a(data-wysihtml5-command='foreColor' data-wysihtml5-command-value='red') red
+          a(data-wysihtml5-command='foreColor' data-wysihtml5-command-value='green') green
+          a(data-wysihtml5-command='foreColor' data-wysihtml5-command-value='blue') blue
+          // Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href)
+          a(data-wysihtml5-command='createLink') insert link
+          div(data-wysihtml5-dialog='createLink' style='display: none;')
+            label
+              | Link:
+              input.text(data-wysihtml5-dialog-field='href' value='http://')
+            a(data-wysihtml5-dialog-action='save') OK
+            a(data-wysihtml5-dialog-action='cancel') Cancel
+
+  script
+    var editor = new wysihtml5.Editor("wysihtml5-textarea", {toolbar:"wysihtml5-toolbar",parserRules:wysihtml5ParserRules});

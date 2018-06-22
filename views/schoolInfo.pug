@@ -4,10 +4,10 @@ block content
   h1 Add School Information
   form(method="post" action="saveSchoolInfo")
     .formGroup
-      label school name
+      label School name:
       input(type="text" name="schoolName")
     .formGroup
-      label subject
+      label Subject:
       input(type="text" name="subject")
     input(type="submit")
   hr
@@ -16,9 +16,8 @@ block content
     ol
       each s in schoolInfo
         li
-          input(name="deleteName" value=schoolInfo.schoolName type="checkbox")
-          e #{schoolInfo.schoolName}
-          br
-          i #{schoolInfo.subject}
+          input(name="deleteName" value=s.schoolName type="checkbox")
+          e #{s.schoolName} --
+          i #{s.subject}
     input(type="submit" value="Delete checked items")
     hr
