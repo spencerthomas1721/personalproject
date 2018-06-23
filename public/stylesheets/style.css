@@ -94,7 +94,8 @@ div#header {
 }
 
 #indexheader {
-  margin-top: 30px;
+  margin-top: -80px;
+  color: white;
 }
 
 div#textarea {

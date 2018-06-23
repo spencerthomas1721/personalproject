@@ -38,9 +38,9 @@ module.exports = function(passport) {
     // =========================================================================
     passport.use(new GoogleStrategy({
 
-        clientID        : configAuth.googleAuth.clientID,
-        clientSecret    : configAuth.googleAuth.clientSecret,
-        callbackURL     : configAuth.googleAuth.callbackURL,
+        clientID: configAuth.googleAuth.clientID,
+        clientSecret: configAuth.googleAuth.clientSecret,
+        callbackURL: configAuth.googleAuth.callbackURL,
 
     },
     function(token, refreshToken, profile, done) {
@@ -84,11 +84,9 @@ module.exports = function(passport) {
                         if (err)
                             throw err;
                         return done(null, newUser);
-                    });
+                    })
                 }
-            });
-        });
-
-    }));
-
-};
+            })
+        })
+    }))
+}
