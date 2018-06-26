@@ -6,4 +6,4 @@ var schoolInfoSchema = mongoose.Schema( {
   subject: String
 })
 
-module.exports = mongoose.model( 'SchoolInfo', schoolInfoSchema )
+module.exports = mongoose.model( 'schoolInfo', schoolInfoSchema )
