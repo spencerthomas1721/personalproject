@@ -13,6 +13,8 @@ var server = service.listen(8081, function() {
 function MyCSV(STREET_ADDRESS,LISTING_REGION,LISTING_COMMUNITY,LISTING_CITY,POSTAL_CODE,LATITUDE,LONGITUDE,MANAGED_BY,MAIN_PHOTO,PROPERTY_TYPE,PRICE,BEDS,BATHS,SQ_FT,PETS) {
     this.street_address = STREET_ADDRESS
     this.price = PRICE
+    this.beds = BEDS
+    this.baths = BATHS
 }
 
 var MyData = []
@@ -34,6 +36,9 @@ function get_count_under(price) {
     apt_price = MyData[index]["price"]
     if(apt_price < price) {
       count++
+      console.log(MyData[index]["price"])
+      console.log(MyData[index]["beds"])
+      console.log(MyData[index]["baths"])
     }
   }
   return count

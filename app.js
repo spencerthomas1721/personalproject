@@ -133,7 +133,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-request('http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2018/Summer/1400/UGRD', function (error, response, html) {
+/*request('http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2018/Summer/1400/UGRD', function (error, response, html) {
   if (!error && response.statusCode == 200) {
     console.log('trying to scrape')
     var $ = cheerio.load(html);
@@ -154,14 +154,14 @@ request('http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2018
       prof = $(this).text();
     })
 
-    var metadata = {
+    /*var metadata = {
       courseNum:courseNum
       courseName:courseName
       prof:prof
     }
     console.log(metadata)
   }
-})
+})*/
 
 app.listen('8081')
 
