@@ -20,6 +20,15 @@ exports.getAllSchoolInfo = ( req, res ) => {
     } );
 };
 
+exports.saveUserInfo = (req,res) => {
+  if(loggedIn) {
+    if(user.school = "") {
+      user.school = req.body.schoolName
+      console.log(user.name,user.school)
+    }
+  }
+}
+
 exports.saveSchoolInfo = ( req, res ) => {
   console.log("in saveSchoolInfo!")
   console.dir(req)

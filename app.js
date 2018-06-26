@@ -11,6 +11,10 @@ const
   user = require( './models/User' )
   flash = require('connect-flash')
   session = require('express-session')
+  request = require('request')
+  requestpromise = require('request-promise')
+  cheerio = require('cheerio')
+  fs = require('fs')
 
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const passport = require('passport')
@@ -128,5 +132,39 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+request('http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2018/Summer/1400/UGRD', function (error, response, html) {
+  if (!error && response.statusCode == 200) {
+    console.log('trying to scrape')
+    var $ = cheerio.load(html);
+
+    var courseNum, courseName, prof
+
+    var json = { courseNums:"", courseNames:"", profs:""};
+
+    $('.def').each(function(i, elem) {
+      courseNum = $(this).text();
+    })
+
+    $('strong').each(function(i, elem) {
+      courseName = $(this).text();
+    })
+
+    $('li[target=_blank]').each(function(i, elem) {
+      prof = $(this).text();
+    })
+
+    var metadata = {
+      courseNum:courseNum
+      courseName:courseName
+      prof:prof
+    }
+    console.log(metadata)
+  }
+})
+
+app.listen('8081')
+
+console.log('Magic happens on port 8081')
 
 module.exports = app;

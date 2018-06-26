@@ -7,6 +7,7 @@
     "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.3",
     "csv": "^0.3.7",
@@ -20,6 +21,8 @@
     "ngrok": "^3.0.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^1.0.0",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
   }
 }

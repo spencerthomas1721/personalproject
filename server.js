@@ -42,14 +42,14 @@ function get_count_under(price) {
 function process_request(req,res) {
   output_string = "There was an error"
   if(req.body.queryResult.intent.name == "projects/apartmentfinder-83eb2/agent/intents/22e5e33a-bd93-4e47-a419-a07ac04c548d") {
-    output_string = "There are " + get_count_under(req.body.queryResult.parameters["unit-currency"].amount) + " apartments under " + req.body.queryResult.parameters["unit-currency"].amount + "."
+    output_string = "There are " + get_count_under(req.body.queryResult.parameters["unit-currency"].amount) + " apartments under $" + req.body.queryResult.parameters["unit-currency"].amount + "."
   } else {
     output_string = "asdkfj"
   }
   return res.json({
     "fulfillmentMessages": [],
     "fulfillmentText": output_string,
-    "payload": {},
+    "payload": {"slack":{"text":output_string}},
     "outputContexts": [],
     "source": "Test source",
     "followupEventInput": {}

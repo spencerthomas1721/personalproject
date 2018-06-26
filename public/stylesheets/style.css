@@ -95,7 +95,21 @@ div#header {
 
 #indexheader {
   margin-top: -80px;
-  color: white;
+}
+
+#indexheader1 {
+  margin-top: -80px;
+  font-family: 'Heebo';
+}
+
+#indexheader1 {
+  margin-top: -80px;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+#indexheader1 {
+  margin-top: -80px;
+  font-family: 'Nunito', sans-serif;
 }
 
 div#textarea {
@@ -177,7 +191,7 @@ div#textarea {
 }
 
 .emptyspace{
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .login {
