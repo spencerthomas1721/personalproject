@@ -8,6 +8,7 @@ const
   schoolInfoController = require('./controllers/schoolInfoController')
   createController = require('./controllers/createController')
   indexController = require('./controllers/indexController')
+  resultsController = require('./controllers/resultsController')
   user = require( './models/User' )
   flash = require('connect-flash')
   session = require('express-session')
@@ -15,6 +16,7 @@ const
   requestpromise = require('request-promise')
   cheerio = require('cheerio')
   fs = require('fs')
+  formidable = require('formidable')
 
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const passport = require('passport')
@@ -116,6 +118,7 @@ app.post('/saveSchoolInfo', schoolInfoController.saveSchoolInfo );
 app.post('/deleteSchoolInfo', schoolInfoController.deleteSchoolInfo );
 app.get('/create', createController.getAllCreateInfo);
 app.post('saveCreateInfo', isLoggedIn, createController.saveCreateInfo);
+app.get('/results', resultsController.renderResults, resultsController.attachCourseInfo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -133,33 +136,32 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var
+  courseNums = []
+  courseNames = []
+
 /*request('http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2018/Summer/1400/UGRD', function (error, response, html) {
   if (!error && response.statusCode == 200) {
     console.log('trying to scrape')
     var $ = cheerio.load(html);
 
-    var courseNum, courseName, prof
-
-    var json = { courseNums:"", courseNames:"", profs:""};
+    var json = { courseNum:"", courseName:""};
 
     $('.def').each(function(i, elem) {
-      courseNum = $(this).text();
+      courseNums[i] = $(this).attr('name');
     })
 
     $('strong').each(function(i, elem) {
-      courseName = $(this).text();
+      courseNames[i] = $(this).text();
     })
 
-    $('li[target=_blank]').each(function(i, elem) {
+    /*$('target="_blank"').each(function(i, elem) {
       prof = $(this).text();
-    })
+    })*/
 
-    /*var metadata = {
-      courseNum:courseNum
-      courseName:courseName
-      prof:prof
+    /*for(j = 0; j < courseNums.length; j++) {
+      console.log(courseNums[j] + ' - ' + courseNames[j])
     }
-    console.log(metadata)
   }
 })*/
 

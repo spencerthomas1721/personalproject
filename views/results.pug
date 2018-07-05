@@ -1,26 +1,13 @@
 extends layoutBS
-
 block content
   head
     link(href='https://fonts.googleapis.com/css?family=Work+Sans:700' rel='stylesheet')
-  body
+
+  header#resultsheader
     .login
-      button.btn.btn-primary(login) Log in
-      button.btn.btn-primary(login) Sign up
+      a(href="/auth/google").btn.btn-secondary
+        span.fa.fa-google-plus Log in with Google
     br
-    br
-    .form
-      .centered-textfields
-        input(form="text" role="schoolname" placeholder="Your school")
-        input(form="text" role="subjectname" placeholder="Subject")
-    body
-      .container
-        br
-        table
-          thead
-            tr
-              td Course number
-              td Course name
-          tbody
-            tr
-              //for each thingy here
+  body
+    .container
+      ul

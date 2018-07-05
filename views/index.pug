@@ -9,17 +9,17 @@ block content
         a(href="/auth/google").btn.btn-secondary
           span.fa.fa-google-plus Log in with Google
       //a(href="/auth/google") login now
+      h1#indexheader.emptyspace GroupStudy
     .col-lg-12.emptyspace
-      h1#indexheader GroupStudy
       p#indexdesc.emptyspace Find and share study guides for your school. For your classes. For you.
       .container
         form(method="post" action="saveSchoolInfo")
           .row#inputrow
-            .formGroup.col-6.emptyspace
+            .formGroup.col-6
               input#schoolName(type="text" name="schoolName" placeholder="School name").form-control.form-control-lg
-            .formGroup.col-6.emptyspace
+            .formGroup.col-6
               input#subject(type="text" name="subject" placeholder="Subject").form-control.form-control-lg
           br
           .centered-buttons
-            button(type="submit" href="results" name="find").btn.btn-primary.btn-lg Find
-            button(type="submit" href="create" name="create").btn.btn-primary.btn-lg Create
+            a(type="submit" href="results" name="find" value="Find").btn.btn-primary.btn-lg Find
+            a(type="submit" href="create" name="create" value="Create").btn.btn-primary.btn-lg Create

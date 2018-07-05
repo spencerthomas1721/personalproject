@@ -2,41 +2,10 @@ extends layoutBS
 
 block content
   head
-    script(src='/xing-wysihtml5-fb0cfe4/parser_rules/advanced.js')
-    script(src='/xing-wysihtml5-fb0cfe4/dist/wysihtml5-0.3.0.min.js')
-    link(href='https://fonts.googleapis.com/css?family=Work+Sans:700' rel='stylesheet')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet')
+    script(src="/javascripts/drive.js")
 
   body
-    h1.emptyspace New Study Guide
-    .container.emptyspace
-      .row
-        .col-lg-12
-          form#createform
-            .row#createdesc
-              a(href="#" role="button").btn.btn-primary.btn-mid.inline#uploadbtn Upload
-              p#createsubdesc or create one from scratch.
-            textarea#wysihtml5-textarea(placeholder='Enter your text ...' autofocus='')
-          //.form.emptyspace
-            //#texteditor
-              //#header
-                //button.btn
-                  //i.fa.fa-bold
-            #wysihtml5-toolbar
-              a(data-wysihtml5-command='bold') bold
-              a(data-wysihtml5-command='italic') italic
-              // Some wysihtml5 commands require extra parameters
-              a(data-wysihtml5-command='foreColor' data-wysihtml5-command-value='red') red
-              a(data-wysihtml5-command='foreColor' data-wysihtml5-command-value='green') green
-              a(data-wysihtml5-command='foreColor' data-wysihtml5-command-value='blue') blue
-              // Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href)
-              a(data-wysihtml5-command='createLink') insert link
-              div(data-wysihtml5-dialog='createLink' style='display: none;')
-                label
-                  | Link:
-                  input.text(data-wysihtml5-dialog-field='href' value='http://')
-                a(data-wysihtml5-dialog-action='save') OK
-                a(data-wysihtml5-dialog-action='cancel') Cancel
+    button#auth(type='button' disabled='') Authenticate
+    #result
 
-  script
-    var editor = new wysihtml5.Editor("wysihtml5-textarea", {toolbar:"wysihtml5-toolbar",parserRules:wysihtml5ParserRules});
+    script(src='https://apis.google.com/js/api.js?onload=onApiLoad')

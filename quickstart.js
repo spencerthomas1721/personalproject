@@ -1,14 +1,3 @@
-'use strict'
-const mongoose = require( 'mongoose' )
-
-var createInfoSchema = mongoose.Schema( {
-  schoolName: String,
-  subject: String,
-  text: String
-})
-
-module.exports = mongoose.model( 'createInfo', createInfoSchema )
-
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
